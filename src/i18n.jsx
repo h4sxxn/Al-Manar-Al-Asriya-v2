@@ -10,7 +10,7 @@ const IMG = (id, w = 1200) =>
 
 export const IMAGES = {
   hero: IMG('1541888946425-d81bb19240f5', 2000),
-  about: IMG('1581092160562-40aa08e78837', 1200),
+  about: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Tower_crane_at_a_building_construction_site_in_Taichung_2023-05-13_01.jpg/1280px-Tower_crane_at_a_building_construction_site_in_Taichung_2023-05-13_01.jpg',
 }
 
 export const FLEET = [
@@ -22,32 +22,32 @@ export const FLEET = [
   },
   {
     id: 'loader',
-    img: IMG('1565008447742-97f6f38c985c'),
+    img: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Komatsu_WA500_wheel_loader_for_gravel_mining.jpg/1280px-Komatsu_WA500_wheel_loader_for_gravel_mining.jpg',
     en: { name: 'Wheel Loaders', blurb: 'Moving aggregates, loading trucks and keeping busy sites flowing.', tags: ['Aggregates', 'Truck loading', 'Site clearing'] },
     ar: { name: 'اللودرات', blurb: 'نقل الركام وتحميل الشاحنات وإبقاء المواقع المزدحمة في حركة دائمة.', tags: ['ركام', 'تحميل شاحنات', 'تنظيف مواقع'] },
   },
   {
     id: 'jcb',
-    img: IMG('1620283085439-39620a1e21c4'),
+    img: 'https://upload.wikimedia.org/wikipedia/commons/1/1b/JCB_3CX_Backhoe_Loader_on_outriggers.jpg',
     badge: true,
     en: { name: 'JCB Machines', blurb: 'Backhoe loaders, telehandlers and more — the all-rounders every site asks for.', tags: ['Backhoes', 'Telehandlers', 'Multi-purpose'] },
     ar: { name: 'معدات JCB', blurb: 'لودرات حفارة وتليسكوبات وغيرها — معدات متعددة الاستخدامات يطلبها كل موقع.', tags: ['حفار لودر', 'تليسكوب', 'متعددة الاستخدام'] },
   },
   {
     id: 'cat',
-    img: IMG('1590959651373-a3db0f38a961'),
+    img: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Caterpillar_950k_Wheel_Loader.jpg/1280px-Caterpillar_950k_Wheel_Loader.jpg',
     en: { name: 'CAT Machines', blurb: 'Heavy-duty Caterpillar power for earthmoving and road work.', tags: ['Earthmoving', 'Road work', 'Heavy duty'] },
     ar: { name: 'معدات CAT', blurb: 'قوة كاتربيلر للخدمة الشاقة في أعمال الحفر والطرق.', tags: ['أعمال ترابية', 'طرق', 'خدمة شاقة'] },
   },
   {
     id: 'crane',
-    img: IMG('1504307651254-35680f356dfd'),
+    img: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/20230107_Construction_Site_Nuremberg.jpg/1280px-20230107_Construction_Site_Nuremberg.jpg',
     en: { name: 'Cranes', blurb: 'Lifting power for steel, precast and heavy installs — planned, safe lifts.', tags: ['Steel lifting', 'Precast', 'Heavy installs'] },
     ar: { name: 'الرافعات', blurb: 'قدرة رفع للحديد والخرسانة الجاهزة والتركيبات الثقيلة — رفعات مخططة وآمنة.', tags: ['رفع حديد', 'خرسانة جاهزة', 'تركيبات ثقيلة'] },
   },
   {
     id: 'mixer',
-    img: IMG('1578319439584-104c94d37305'),
+    img: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Clean_concrete_mixer_truck.jpg/1280px-Clean_concrete_mixer_truck.jpg',
     en: { name: 'Concrete Mixers', blurb: 'Mixers that keep pours on schedule — one pour or full project supply.', tags: ['On-schedule pours', 'Project supply'] },
     ar: { name: 'خلاطات الخرسانة', blurb: 'خلاطات تحافظ على مواعيد الصب — صبة واحدة أو توريد مشروع كامل.', tags: ['صب في الموعد', 'توريد مشاريع'] },
   },
@@ -56,6 +56,7 @@ export const FLEET = [
 export const dict = {
   en: {
     dir: 'ltr',
+    ui: { scroll: 'Scroll', sideways: 'Keep scrolling — the fleet moves sideways', chapter: 'Chapter', est: 'EST. 2002 — KUWAIT', rail: 'HEAVY MACHINERY RENTAL — KUWAIT' },
     nav: { fleet: 'Fleet', why: 'Why Us', process: 'Process', about: 'About', faq: 'FAQ', contact: 'Contact', quote: 'Get a quote', langName: 'العربية' },
     hero: {
       badge: 'Kuwait · Available 24/7',
@@ -169,6 +170,7 @@ export const dict = {
 
   ar: {
     dir: 'rtl',
+    ui: { scroll: 'مرّر للأسفل', sideways: 'تابع التمرير — الأسطول يتحرك جانبياً', chapter: 'الفصل', est: 'منذ ٢٠٠٢ — الكويت', rail: 'تأجير معدات ثقيلة — الكويت' },
     nav: { fleet: 'الأسطول', why: 'لماذا نحن', process: 'خطوات العمل', about: 'من نحن', faq: 'الأسئلة الشائعة', contact: 'تواصل معنا', quote: 'اطلب عرض سعر', langName: 'English' },
     hero: {
       badge: 'الكويت · متاحون على مدار الساعة',
