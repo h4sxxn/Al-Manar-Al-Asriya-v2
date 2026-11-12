@@ -10,7 +10,10 @@ gsap.registerPlugin(ScrollTrigger);
 // The fleet as a pinned horizontal journey: as the visitor scrolls, the six
 // machine categories travel sideways as full-bleed panels with giant index
 // numerals, per-panel image parallax (containerAnimation) and a progress rail.
-// In RTL the travel direction mirrors.
+// RTL note: the track mechanics live in an internal LTR shell (dir="ltr" on
+// the viewport) — under dir="rtl" the RTL flex row + GSAP's mirrored x sent
+// the track off-screen the wrong way, leaving a blank void. Each panel keeps
+// dir={dir} so its text still reads RTL in Arabic; only the track is LTR.
 // ─────────────────────────────────────────────────────────────────────────────
 export default function Fleet({ onQuote }) {
   const { t, lang, dir } = useLang();
@@ -23,12 +26,11 @@ export default function Fleet({ onQuote }) {
     const section = sectionRef.current;
     const track = trackRef.current;
     if (!section || !track) return undefined;
-    const rtl = dir === 'rtl';
 
     const ctx = gsap.context(() => {
       const dist = () => Math.max(0, track.scrollWidth - window.innerWidth);
       const tween = gsap.to(track, {
-        x: () => (rtl ? dist() : -dist()),
+        x: () => -dist(),
         ease: 'none',
         scrollTrigger: {
           trigger: section,
@@ -53,9 +55,9 @@ export default function Fleet({ onQuote }) {
       track.querySelectorAll('.fleet-panel__img img').forEach(img => {
         gsap.fromTo(
           img,
-          { xPercent: rtl ? 7 : -7 },
+          { xPercent: -7 },
           {
-            xPercent: rtl ? -7 : 7,
+            xPercent: 7,
             ease: 'none',
             scrollTrigger: {
               trigger: img.closest('.fleet-panel'),
@@ -71,9 +73,9 @@ export default function Fleet({ onQuote }) {
       track.querySelectorAll('.fleet-panel__num').forEach(num => {
         gsap.fromTo(
           num,
-          { xPercent: rtl ? -14 : 14 },
+          { xPercent: 14 },
           {
-            xPercent: rtl ? 14 : -14,
+            xPercent: -14,
             ease: 'none',
             scrollTrigger: {
               trigger: num.closest('.fleet-panel'),
@@ -111,12 +113,12 @@ export default function Fleet({ onQuote }) {
         </div>
       </div>
 
-      <div className="fleet-h__viewport">
+      <div className="fleet-h__viewport" dir="ltr">
         <div className="fleet-track" ref={trackRef}>
           {FLEET.map((item, i) => {
             const c = item[lang];
             return (
-              <article className="fleet-panel" key={item.id}>
+              <article className="fleet-panel" key={item.id} dir={dir}>
                 <span className="fleet-panel__num" aria-hidden="true">
                   {String(i + 1).padStart(2, '0')}
                 </span>
@@ -143,7 +145,7 @@ export default function Fleet({ onQuote }) {
               </article>
             );
           })}
-          <div className="fleet-panel fleet-panel--end" aria-hidden="true">
+          <div className="fleet-panel fleet-panel--end" dir={dir} aria-hidden="true">
             <span className="fleet-panel__endmark">{lang === 'ar' ? 'المنار' : 'AL MANAR'}</span>
           </div>
         </div>
