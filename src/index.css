@@ -203,19 +203,6 @@ section{scroll-margin-top:90px;position:relative}
 @keyframes hint{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
 @media(max-width:760px){.stats-strip{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-inline-end:0}.stat--scroll{display:none}.stat{padding:1.25rem 1.05rem}}
 
-/* ————— ScrollVelocity (React Bits) ————— */
-.velocity{background:var(--amber);color:var(--amber-ink);overflow:hidden;padding:1rem 0 1.15rem;position:relative;z-index:3}
-.parallax{position:relative;overflow:hidden}
-.scroller{display:flex;white-space:nowrap;text-align:center}
-.scroller span{flex-shrink:0}
-.velocity .parallax{cursor:grab}
-.velocity .parallax:active{cursor:grabbing}
-.velocity-scroller{
-  font-family:var(--font-d);font-weight:800;text-transform:uppercase;letter-spacing:.05em;
-  font-size:clamp(1.55rem,4vw,3.2rem);line-height:1.2;
-}
-[dir="rtl"] .velocity-scroller{letter-spacing:0;text-transform:none;font-weight:700}
-
 /* ————— SpotlightCard (React Bits) ————— */
 .spotlight-card{
   --spotlight-card-surface:#111111;

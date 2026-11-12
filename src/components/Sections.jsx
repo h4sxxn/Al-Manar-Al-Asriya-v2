@@ -3,7 +3,6 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useLang, IMAGES } from '../i18n';
-import ScrollVelocity from '../bits/ScrollVelocity';
 import SpotlightCard from '../bits/SpotlightCard';
 import BlurText from '../bits/BlurText';
 import { AnimatedGridPattern, ChapterTag, IconPlus } from './ui';
@@ -21,26 +20,6 @@ const IconUser = p => <P {...p} d={<><circle cx="12" cy="8" r="4" /><path d="M4 
 const IconTruck = p => <P {...p} d={<><path d="M2 7h11v9H2z" /><path d="M13 10h4.5L21 13.5V16h-8" /><circle cx="6.5" cy="18" r="1.8" /><circle cx="16.5" cy="18" r="1.8" /></>} />;
 const IconCalendar = p => <P {...p} d={<><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M8 3v4M16 3v4M3 10h18" /></>} />;
 const IconWrench = p => <P {...p} d={<path d="M14.7 6.3a4.5 4.5 0 0 0-6 6L3 18l3 3 5.7-5.7a4.5 4.5 0 0 0 6-6L14 13l-3-3 3.7-3.7z" />} />;
-
-/* ————— ScrollVelocity divider (React Bits) — the marquee replacement ————— */
-export function VelocityDivider() {
-  const { t, lang } = useLang();
-  const row = t.marquee.join(' ✦ ') + ' ✦ ';
-  return (
-    <div className="velocity" aria-hidden="true">
-      <ScrollVelocity
-        texts={[row, row]}
-        velocity={lang === 'ar' ? 55 : 65}
-        numCopies={4}
-        damping={55}
-        stiffness={420}
-        velocityMapping={{ input: [0, 1000], output: [0, 4.5] }}
-        parallaxClassName="velocity-parallax"
-        scrollerClassName="velocity-scroller"
-      />
-    </div>
-  );
-}
 
 /* ————— Why us — React Bits SpotlightCards over a Magic UI grid pattern ————— */
 const WHY_ICONS = [IconUser, IconTruck, IconCalendar, IconWrench];

@@ -7,7 +7,7 @@ import { scrollState, scrollToTarget } from './fx/scroll';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Fleet from './components/Fleet';
-import { VelocityDivider, Why, Process, About, Faq } from './components/Sections';
+import { Why, Process, About, Faq } from './components/Sections';
 import Quote, { Footer, FloatWhatsApp } from './components/Quote';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -49,7 +49,6 @@ function Shell() {
       <Navbar />
       <main>
         <Hero />
-        <VelocityDivider />
         <Fleet onQuote={handleQuote} />
         <Why />
         <Process />
